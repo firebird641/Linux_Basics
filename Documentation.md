@@ -265,7 +265,7 @@ Bashrc is being executed when a new shell or terminal session is opened.
 ## Alias
 Alias defined shortcuts ('aliases') for commands.
 ~~~
-alias shortnane='command' # defines new alias
+alias shortname='command' # defines new alias
 alias shortname # shows existing alias
 unalias shortname # remove shortname alias
 unalias -a # remove all aliases
