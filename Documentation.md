@@ -327,4 +327,4 @@ fstab contains information for automatically mounting partitions. Contents of th
 crontab -e # run cron as current user
 sudo crontab -e # run cron as root
 ~~~
-Then configure the cronjobs in the text editor.
+Then configure the cronjob in the text editor.
