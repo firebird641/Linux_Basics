@@ -329,11 +329,18 @@ sudo crontab -e # run cron as root
 ~~~
 Then configure the cronjob in the text editor.
 ## tmux Terminal Multiplexer
+Basics
 ~~~
 tmux new # new tmux Session
 ctrl+B : # open tmux Prompt
 ctrl+B d # detach tmux Session
 tmux ls # show active tmux Sessions
 tmux attach-session -t 0 # attach tmux Session 0
-
+tmux a # attach latest tmux session
+~~~
+Naming Sessions
+~~~
+tmux new -s mysession # create a tmux Session named 'mysession'
+tmux a -t mysession # attach the tmux Session 'mysession'
+## a == attach-session
 ~~~
