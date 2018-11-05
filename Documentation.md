@@ -337,6 +337,7 @@ ctrl+B d # detach tmux Session
 tmux ls # show active tmux Sessions
 tmux attach-session -t 0 # attach tmux Session 0
 tmux a # attach latest tmux session
+tmux kill-session -t 1 # kill Session 1
 ~~~
 Naming Sessions
 ~~~
