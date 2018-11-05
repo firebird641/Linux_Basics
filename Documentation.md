@@ -328,3 +328,12 @@ crontab -e # run cron as current user
 sudo crontab -e # run cron as root
 ~~~
 Then configure the cronjob in the text editor.
+## tmux Terminal Multiplexer
+~~~
+tmux new # new tmux Session
+ctrl+B : # open tmux Prompt
+ctrl+B d # detach tmux Session
+tmux ls # show active tmux Sessions
+tmux attach-session -t 0 # attach tmux Session 0
+
+~~~
