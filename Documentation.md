@@ -323,3 +323,7 @@ fstab contains information for automatically mounting partitions. Contents of th
 <pass>          # 0
 ~~~
 ## Cronjobs
+~~~
+crontab -e
+~~~
+Then configure the cronjobs in the text editor.
