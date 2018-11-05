@@ -349,4 +349,10 @@ Panes
 ctrl+B " # split Pane horizontally
 ctrl+B % # split Pane vertically
 ctrl+B ARROW_KEY # Switch between Panes
+ctrl+B : # go to the tmux Console
+ctrl+B resize-pane -D 2 # Resize Pane down by 2 lines
+# U: up
+# D: down
+# L: left
+# R: right
 ~~~
