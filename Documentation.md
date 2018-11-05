@@ -344,3 +344,9 @@ tmux new -s mysession # create a tmux Session named 'mysession'
 tmux a -t mysession # attach the tmux Session 'mysession'
 ## a == attach-session
 ~~~
+Panes
+~~~
+ctrl+B " # split Pane horizontally
+ctrl+B % # split Pane vertically
+ctrl+B ARROW_KEY # Switch between Panes
+~~~
