@@ -357,3 +357,10 @@ ctrl+B resize-pane -D 2 # Resize Pane down by 2 lines
 # L: left
 # R: right
 ~~~
+## Links
+### Hardlinks
+### Symbolic Links
+## Burning CDs/DVDs
+## unmask-Bits
+## Access Control Lists
+## Linux Directory Structure
