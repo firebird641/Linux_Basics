@@ -2,7 +2,6 @@
 
 by firebird641
 
-
 ## Nano
 
 Nano is a simple Linux Console Text / Script Editor. Run it using the **nano** command.
@@ -117,6 +116,7 @@ sudo ifconfig -a # Show Status of all Interfaces
 ip addr # Show interface IP/MAC-Addresses
 sudo netstat -tulpn # show Services listening on TCP/UDP Ports
 nslookup google.com # resolve Google.com using the systems DNS Server
+traceroute google.com # do a traceroute on google.com
 ~~~
 
 The Network Interfaces can be configured in the **/etc/network/interfaces** file.
@@ -156,7 +156,7 @@ iptables is a low-Level IP-Filtering Firewall.
 
 arptables is a low-Level ARP-Filtering Firewall.
 
-## dd Command
+## dd
 
 The disk dump command allowes you to create images from block devices or write images to block devices.
 
@@ -164,7 +164,7 @@ The disk dump command allowes you to create images from block devices or write i
 dd if=source of=target # clones from source to target
 ~~~
 
-## sync Command
+## sync
 
 Sync writes any data buffered in memory to the disk. Useful if there is an unexpected halt of the system or before removing an external data stroage medium.
 
@@ -216,7 +216,7 @@ sudo updatedb # updates the search database (mlocate)
 ~~~bash
 command ./{element1,element2,element3}
 ~~~
-## Less Command
+## Less
 
 The less command shows the content of a file from the beginning.
 
@@ -377,7 +377,25 @@ do
   statement
 done
 ~~~
+## Functions
+
+~~~bash
+# declaring a function
+print_something () {
+	echo Hello I am a function
+}
+# calling a function
+print_something
+# declaring a function with arguments
+print_something () {
+	echo Hello $1
+}
+# calling a function with arguments
+print_something Test
+~~~
+
 ## File Permissions
+
 ### Users and Groups
 Users have a name and a UID, unique ID.
 
@@ -437,7 +455,24 @@ setUID: Run executable with the rights of the owner, not the one who is executin
 setGID: Run executable with rights of the group, not the one of the executing group (Octal 2).
 
 stickyBit: Only owner of the file can remove or rename the file (Octal 1).
-## Find Command
+
+## chmod
+
+Sets the file permissions for a file or directory.
+
+~~~bash
+chmod +x file.sh # make file.sh executable
+~~~
+
+## chown
+
+Sets the owner of a file or directory.
+
+~~~bash
+chown -R user:user ./directory/ # sets user "user" and group "user" as the owner of the directory
+~~~
+
+## Find
 ### Permissions
 ~~~bash
 find . -type -f -perm 0660 # Output all files that are readable and writeable for user and group
@@ -517,17 +552,6 @@ tar -cvf archive.tar.gz archive
 Unpacking Archives:
 ~~~bash
 tar -xvf archive.tar.gz
-~~~
-## Mounting Devices
-### Mounting
-~~~bash
-mount /dev/sdX /mnt
-mount -a # from fstab
-~~~
-### Unmounting
-~~~bash
-umount /mnt
-umount -a # all
 ~~~
 ## fstab
 fstab contains information for automatically mounting partitions. Contents of this file are split into columns for each line:
@@ -696,6 +720,8 @@ A unit type is a systemd capability, like for example mounting Filesystems, Moni
 
 ## sudo
 
+sudo allows you to run commands as root.
+
 ~~~bash
 sudo passwd -d root # disable root login
 ~~~
@@ -708,3 +734,154 @@ root ALL = (ALL) ALL # Root may execute all commands with sudo
 admin ALL = NOPASSWD: ALL # user admin may execute all programs without password input
 user ALL = NOPASSWD: /usr/bin/python # user may execute /usr/bin/python without password input
 ~~~
+
+## cmp
+
+Compares two files and outputs all differences.
+
+## curl
+
+Allows you to transfer files from or to a server. It supports a wide range of network protocols: HTTP, FTP, HTTPS, LDAP, TELNET and others.
+
+Example usage:
+
+~~~bash
+curl https://debian.org # get the main Debian webpage
+curl http://10.10.0.123:8080 # get Ip 10.10.0.123 Port 8080
+curl -o thatpage.html http://www.netscape.com # Store the web page to thatpage.html
+curl -O www.haxx.se/index.html -O curl.haxx.se/download.html # fetch two files and store them with their remote name
+curl -u name:passwd ftp://machine.domain:port/full/path/to/file # Download File from FTP Server with username and password
+~~~
+
+## Environment Variables
+
+Environment Variables are Variables accessible by any shell and can for example define paths to executables or proxy configurations. They are different from Shell Variables.
+
+Important commands:
+
+~~~bash
+KEY=value1:value2:value3 # Three values in one variable
+KEY="value with spaces" # One String (with spaces) in a variable
+env # print all set environment variables
+echo $TEST_VAR # output value of TEST_VAR
+export TEST_VAR # Convert Shell Variable into Environment Variable
+export NEW_VAR="Testing export" # Set NEW_VAR as Environment Variable
+export -n TEST_VAR # Convert Environment Variable to Shell Variable
+unset TEST_VAR # Remove Shell Variable
+~~~
+
+## Killing Processes
+
+You can either kill a process by it's UID (Unique Identifier) or by it's name:
+
+~~~bash
+kill 1234 # kill Process with ID 1234
+kill -SIGTERM 3139 # kill Process 3139 with SIGNTERM
+killall python # kill python
+~~~
+
+## man
+
+Shows the manpages for a package installed on the system.
+
+## Mounting devices
+
+~~~bash
+mount -l # list mounted devices
+mount /dev/sda1 /mnt/mountpoint # mount /dev/sda1 to /mnt/mountpoint
+umount /dev/sda1 # dismount device /dev/sda1
+umount /mnt # dismount mountpoint /mnt
+mount -a # mount all from fstab
+umount -a # dismount all
+~~~
+
+## ping
+
+Send ICMP Ping to a Machine by IP or Hostname.
+
+## Poweroff and Reboot
+
+~~~bash
+poweroff # poweroff the machine
+reboot # reboot the machine
+~~~
+
+## ssh
+
+~~~bash
+ssh user@host[:port] # connect to server
+ssh -D user@host[:port] # connect to server and create SOCKS Proxy
+ssh -N user@host[:port] # connect but do not open a shell
+~~~
+
+## uname
+
+Shows System Information like:
+
+- Kernel name
+- Hostname
+- Processor Type
+- Platform
+- Kernel Version
+
+## wget
+
+Downloads files from HTTP/HTTPS/FTP Servers.
+
+~~~bash
+wget https://cdimage.parrotsec.org/parrot/iso/4.5.1/Parrot-security-4.5.1_amd64.iso # Download ISO
+~~~
+
+## whoami
+
+~~~bash
+whoami # returns the current user name
+~~~
+
+## File System Structure
+
+- / (root directory)
+- /bin (Essential user command binaries)
+  - Binary Executables
+  - Linux Commands
+  - ping, grep, ...
+- /boot (Boot Loader)
+  - initrd
+  - grub config files
+  - vmlinuz
+- /dev (Device Files)
+  - sdX
+  - ttyX
+  - usbX
+- /etc (System Configuration Files)
+  - Configfiles
+  - startup and shutdown shell scripts
+- /home (User Home Directories)
+  - user files
+  - bashrc
+  - local configuration files
+- /lib (Shared Libraries)
+  - libraries for /bin
+  - libraries for /sbin
+  - Shared Object Files
+- /media (Removable Media)
+  - cdrom
+  - floppy
+  - HDDs
+  - USB Sticks
+- /mnt (Mounted Filesystems)
+  - temporarily mounted devices
+  - manually mounted devices
+- /opt (Application Software Packages)
+- /sbin (System Binaries)
+  - init, route, fsck
+  - iptables, reboot, fdisk, ifconfig, swapon
+- /srv (Data for System Services)
+- /tmp (Temporary Files)
+- /usr (User Utilities and Applications)
+  - libraries
+  - documentation
+  - source-code
+- /proc (Process Information)
+  - System Processes
+  - System Resources (like uptime)
