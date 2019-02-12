@@ -60,6 +60,10 @@ chroot /home/user/directory command
 
 Fakeroot creates a environment that simulates root privileges on a command. It fooles the command process that it runs as root.
 
+## File Extensions
+
+Linux does not know any file extensions. It determines the type of a file by the file header. Use whatever you want.
+
 ## Special Chaining Operators
 
 ~~~bash
@@ -112,9 +116,10 @@ service ssh stop # stop SSH service
 Here are some useful networking commands:
 
 ~~~bash
-sudo ifconfig -a # Show Status of all Interfaces 
+ifconfig -a # Show Status of all Interfaces
+ip link # show all Network Interfaces
 ip addr # Show interface IP/MAC-Addresses
-sudo netstat -tulpn # show Services listening on TCP/UDP Ports
+netstat -tulpn # show Services listening on TCP/UDP Ports
 nslookup google.com # resolve Google.com using the systems DNS Server
 traceroute google.com # do a traceroute on google.com
 ~~~
@@ -128,10 +133,10 @@ iface eth0 inet dhcp
 # Static Interface  Example
 auto eth1
 iface eth1 inet static
-address 192.168.0.1
-netmask 255.255.255.0
-gateway 192.168.0.1
-dns-nameservers 1.1.1.1
+	address 192.168.0.1
+	netmask 255.255.255.0
+	gateway 192.168.0.1
+	dns-nameservers 1.1.1.1
 ~~~
 
 ## Script Execution
@@ -885,3 +890,78 @@ whoami # returns the current user name
 - /proc (Process Information)
   - System Processes
   - System Resources (like uptime)
+
+## Kernel Modules
+
+Kernel Modules extend or are part of the Linux Kernel. Examples:
+
+- WiFi Driver
+- Sound Card Driver
+- USB Device Driver
+
+### Displaying loaded Modules
+
+~~~bash
+# two ways to display kernel modules
+kmod list
+lsmod
+~~~
+
+### modinfo - Showing Module Information
+
+~~~bash
+modinfo snd # show info for snd module
+
+~~~
+
+### modprobe - Loading and Unloading Modules
+
+With modprobe you can load or unload kernel modules at runtime.
+
+~~~bash
+modprobe -n MODULENAME # simulate loading a module
+modprobe -a MODULENAME # load a module
+modprobe -r MODULENAME # unload module
+modprobe --show-depends MODULENAME # show dependencies  of a module
+~~~
+
+### depmod - Module Dependencies
+
+depmod can be used to recreate the file **/lib/modules/KERNELVERSION/modules.dep** when adding custom modules to the kernel.
+
+### Loading modules automatically
+
+To load a module automatically, just add it's name to **/etc/modules**
+
+### Blacklisting
+
+You can disallow a module to be loaded automatically by using a blacklist. You can find the blacklist under **/etc/modprobe.d**, normally inside the file **blacklist.conf**.
+
+## Regular Expressions
+
+~~~bash
+. # matches a single character
+\ # escape character
+.* # matches any string
+$ # end of a line
+[] # range
+| # logical OR
+[^] # logical NOT
+~~~
+
+## Wildcards
+
+~~~bash
+? # single character
+* # any number of characters
+[a-c] # range of characters
+{} # list of items
+~~~
+
+## sed
+
+sed is the Linux Stream Editor. It is a non-interactive Text Editor for the Console. You can call sed like this:
+
+~~~bash
+sed SED_SCRIPT FILE # general sed command
+~~~
