@@ -86,7 +86,7 @@ Strg + Alt + F1-F7
 
 ## APT
 
-APT (Advaned Packaging Tool) is a Linux Package Manager. It is used to Install / Remove / Update Software Packages for Debian-based Distributions like Ubuntu, Linux Mint and others.
+APT (Advanced Packaging Tool) is a Linux Package Manager. It is used to Install / Remove / Update Software Packages for Debian-based Distributions like Ubuntu, Linux Mint and others.
 
 ~~~bash
 apt update # Update Software List (check for updates)
@@ -960,8 +960,18 @@ $ # end of a line
 
 ## sed
 
-sed is the Linux Stream Editor. It is a non-interactive Text Editor for the Console. You can call sed like this:
+sed is the Linux Stream Editor. It is a non-interactive Text Editor for the Console. You can run sed like this:
 
 ~~~bash
 sed SED_SCRIPT FILE # general sed command
 ~~~
+
+## history
+
+The history command displays the commands you typed in as a particular user.
+
+~~~bash
+history # shows the last commands
+history -c # clears the command history
+~~~
+
