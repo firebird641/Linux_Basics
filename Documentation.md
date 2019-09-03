@@ -14,6 +14,14 @@ With cat you can show the content of files.
 cat file.txt
 ~~~
 
+## Printf
+
+printf prints out a formatted string in which you can put variables and escape sequences.
+
+~~~bash
+printf "Hi, I'm %s.\n" $NAME
+~~~
+
 ## List Files
 
 ~~~bash
@@ -32,7 +40,16 @@ mv file1 file2
 # Delete
 rm file
 rm -r directory # recursively remove
+rmdir # removes a directory
 ~~~
+
+## fsck
+
+This verifies a file system (like checkdisk). 
+
+## pwd
+
+Print Working Directory prints the current directory path.
 
 ## Directory Structure Commands
 
@@ -153,6 +170,13 @@ When writing a script you want to execute with the console (./script), you need 
 mkpasswd -l 16 # generates a passwort of length 16
 ~~~
 
+## Checking Disk Usage
+
+~~~bash
+df # Disk Free: shows free disk space
+du # Disk Usage: shows the used disk space
+~~~
+
 ## iptables
 
 iptables is a low-Level IP-Filtering Firewall.
@@ -197,16 +221,16 @@ This command allows you to write command output to a file and also redirect it t
 ~~~bash
 command1 | tee output.txt | command2
 ~~~
-## Grep
+## grep
 
-grep looks for Text.
+grep looks for text.
 
 ~~~bash
 cat text.txt | grep Hello # search for "Hello"
 grep -v Hello ./text.txt # prints all lines that do not contain "Hello"
 ~~~
 
-## Locate
+## locate
 
 Very fast method to find files by their name. It uses a Search Database called mlocate.
 
@@ -215,6 +239,14 @@ locate file.txt # prints out all paths to files calles "file.txt"
 locate -c file.txt # prints the number of results
 sudo updatedb # updates the search database (mlocate)
 ~~~
+
+## su
+
+Substitute user changes the current user (default: root).
+
+## who
+
+Tells you who is logged in.
 
 ## Lists
 
@@ -235,7 +267,7 @@ echo "Hello World."
 
 ## Wall
 
-Wall sends a message to all users.
+Wall (Write All) sends a message to all users.
 
 ~~~bash
 wall "Hello. System Shutdown in 30 seconds." ; shutdown -h -t 30
@@ -463,7 +495,7 @@ stickyBit: Only owner of the file can remove or rename the file (Octal 1).
 
 ## chmod
 
-Sets the file permissions for a file or directory.
+Change Mode sets the file permissions for a file or directory.
 
 ~~~bash
 chmod +x file.sh # make file.sh executable
@@ -471,7 +503,7 @@ chmod +x file.sh # make file.sh executable
 
 ## chown
 
-Sets the owner of a file or directory.
+Change Owner sets the owner of a file or directory.
 
 ~~~bash
 chown -R user:user ./directory/ # sets user "user" and group "user" as the owner of the directory
@@ -723,6 +755,14 @@ A unit type is a systemd capability, like for example mounting Filesystems, Moni
 - Mount Units (control filesystem attachments)
 - Target Units (control other Units)
 
+## passwd
+
+Changes the password for the specified user.
+
+## whatis
+
+Informs you about what a specified command does.
+
 ## sudo
 
 sudo allows you to run commands as root.
@@ -743,6 +783,10 @@ user ALL = NOPASSWD: /usr/bin/python # user may execute /usr/bin/python without 
 ## cmp
 
 Compares two files and outputs all differences.
+
+## ftp
+
+File Transfer Protocol Tool.
 
 ## curl
 
@@ -975,3 +1019,6 @@ history # shows the last commands
 history -c # clears the command history
 ~~~
 
+## dig
+
+This queries DNS Servers for information about host addresses, MX records, nameserver and other information.
