@@ -8,10 +8,13 @@ Nano is a simple Linux Console Text / Script Editor. Run it using the **nano** c
 
 ## Cat
 
-With cat you can show the content of files.
+**cat** stands for concatenate
+cat takes files, concatenates them and prints their content.
+Common use for cat is to print a single file to the terminal.
 
 ~~~bash
 cat file.txt
+cat file1.txt file2.txt
 ~~~
 
 ## Printf
@@ -28,6 +31,7 @@ printf "Hi, I'm %s.\n" $NAME
 ls # show files in current directory
 ls -l # list files in current directory
 ls -la # list all files in current directory
+ls -lah # list all files in current directory with human readable sizes
 ~~~
 
 ## Copy, Move, Rename and Delete
@@ -57,6 +61,7 @@ Print Working Directory prints the current directory path.
 / # root directory
 ~ # current users home directory
 ./ # current directory
+../ # parent directory
 ~~~
 
 ## Change Directory
