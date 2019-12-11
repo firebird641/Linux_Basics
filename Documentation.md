@@ -5,6 +5,9 @@ by firebird641
 ## Nano
 
 Nano is a simple Linux Console Text / Script Editor. Run it using the **nano** command.
+~~~Bash
+nano newFile.txt
+~~~
 
 ## Cat
 
@@ -38,13 +41,13 @@ ls -lah # list all files in current directory with human readable sizes
 
 ~~~bash
 # Copy
-cp file1 file2
+cp file1 somewhere/file2
 # Rename / Move
-mv file1 file2
+mv file1 somewhere/file2
 # Delete
 rm file
 rm -r directory # recursively remove
-rmdir # removes a directory
+rmdir # removes an empty directory
 ~~~
 
 ## fsck
@@ -141,6 +144,7 @@ Here are some useful networking commands:
 ifconfig -a # Show Status of all Interfaces
 ip link # show all Network Interfaces
 ip addr # Show interface IP/MAC-Addresses
+ip a # same as ip addr
 netstat -tulpn # show Services listening on TCP/UDP Ports
 nslookup google.com # resolve Google.com using the systems DNS Server
 traceroute google.com # do a traceroute on google.com
@@ -167,6 +171,10 @@ When writing a script you want to execute with the console (./script), you need 
 
 ~~~bash
 #!/usr/bin/python
+~~~
+
+~~~bash
+#!/bin/bash
 ~~~
 
 ## mkpasswd
